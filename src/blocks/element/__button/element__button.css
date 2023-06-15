@@ -1,0 +1,17 @@
+.element__button {
+    width: 22px;
+    height: 19px;
+    background-image: url(../../../image/disabled-heart.svg);
+    background-repeat: no-repeat;
+    background-color: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition:opacity 0.3s linear;
+    
+    
+}
+
+.element__button:hover{
+    opacity: 0.5;
+}
