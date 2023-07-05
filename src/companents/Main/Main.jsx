@@ -3,30 +3,34 @@ import api from "../../utils/Api";
 import Card from "../Card/Card.jsx";
 
 
-function Main({ onEditProfile, onAddPlace, onEditAvatar }) {
+function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
     const [userName, setUserName] = useState('');
     const [userDescription, setUserDescription] = useState('');
     const [userAvatar, setUserAvatar] = useState('');
+    const [userId, setUserId] = useState('');
     const [cards, setCards] = useState([])
 
-    // console.log(api.getUserInfo);
+    // console.log(onCardClick);
     useEffect(() => {
         api.getUserInfo().then(data => {
-            console.log(data);
+            // console.log(cards);
             setUserName(data.name);
             setUserDescription(data.about);
             setUserAvatar(data.avatar);
-
+            setUserId(data._id)
+            // console.log(data)
         });
     }, []);
 
     useEffect(() => {
         api.getDefaultCards().then(data => {
-            setCards(data);
-        });
+            setCards(data)
+        })
     }, []);
 
-    console.log(cards);
+
+
+    // console.log(cards);
     return (
         <main>
             <section className="profile">
@@ -43,7 +47,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar }) {
                 <button onClick={onAddPlace} type="button" className="profile__add-card" />
             </section>
             <section className="elements">
-                {cards.map((card) => <Card key={card.id} card={card} />)}
+                {cards.map((card) => <Card onCardClick={onCardClick} key={card._id} card={card} userId={userId} />)}
             </section>
 
 
