@@ -19,13 +19,13 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
             setUserAvatar(data.avatar);
             setUserId(data._id)
             // console.log(data)
-        });
+        }).catch((error)=> console.error(`Ошибка при создании данных ${error}`))
     }, []);
 
     useEffect(() => {
         api.getDefaultCards().then(data => {
             setCards(data)
-        })
+        }).catch((error)=> console.error(`Ошибка при создании данных ${error}`))
     }, []);
 
 

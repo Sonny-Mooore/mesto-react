@@ -8,7 +8,7 @@ export default function Card({ card, onCardClick}) {
     //     onCardClick(card);
 
     //   }  
-
+    // console.log(card)
     return (
         <div className="element">
             <img onClick={ () => onCardClick(card) } src={card.link} alt={card.name} className="element__image" />
