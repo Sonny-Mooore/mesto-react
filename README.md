@@ -1,10 +1,22 @@
-# Getting Started with Create React App
+# Проект: Место
+___Интро___:<br/>
+ Проект Место представляет собой сайт с фотографиями. С возможностью редактировать свой профил, и добавлять карточки с фотографиями, и также лайкать их.
+ Был также добавлен функционал с изпользованием делегирования событий, попапы закрываются по esc и вне попапа. еще юыла доабавлена валидация внесенных данных в формы.
+ Все это сделано на  JS.
+### вот ссылка на проект:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://sonny-mooore.github.io/Mesto/
+<br/>
+___Figma___:<br/>
+[https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1]
+### технологии:
+JS<br/>
+WebPack<br/>
+JS-OOP<br/>
+@media<br/>
+JS-Modules<br/>
+Figma<br/>
 
-## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 
