@@ -6,6 +6,7 @@ function Footer () {
         <footer className="footer">
             <p className="footer__text">© 2023 Mesto Russia</p>
         </footer>
+
     )
 }
 
