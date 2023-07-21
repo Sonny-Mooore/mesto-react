@@ -8,12 +8,12 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
     const currentUser = useContext(CurrentUserContext);
 
     const [name, setName] = useState('')
-    const [description, setuserAbout] = useState('')
+    const [description, setUserAbout] = useState('')
     // console.log(userName);
     
     useEffect(() => {
         setName(currentUser.name);
-        setuserAbout(currentUser.about);
+        setUserAbout(currentUser.about);
     }, [currentUser]);
 
 
@@ -42,7 +42,7 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
                 <>
                     <input
                         onChange={(event) => setName(event.target.value)}
-                        value={name}
+                        value={name ||''}
                         id="profile-name"
                         name="userName"
                         className="popup__input popup__input_edit_name"
@@ -54,8 +54,8 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
                     />
                     <span id="profile-name-error" className="popup__form-error" />
                     <input
-                        onChange={(event) => setuserAbout(event.target.value)}
-                        value={description}
+                        onChange={(event) => setUserAbout(event.target.value)}
+                        value={description ||''}
                         name="userjob"
                         minLength={2}
                         className="popup__input popup__input_edit_job"
