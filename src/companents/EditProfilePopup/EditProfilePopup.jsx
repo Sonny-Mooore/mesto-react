@@ -3,8 +3,6 @@ import CurrentUserContext from "../../utils/Contexts/CurrentUserContext";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 
 
-
-
 export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
 
     const currentUser = useContext(CurrentUserContext);

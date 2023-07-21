@@ -15,7 +15,7 @@ export default function Card({ card, onCardClick, currentUser, handleDeleteClick
                 className="element__image"
             />
             {isOwner && <button
-                onClick={() => handleDeleteClick(card)}
+                onClick={() => handleDeleteClick(card._id)}
                 type="button"
                 className="element__button-trash"
             />}
