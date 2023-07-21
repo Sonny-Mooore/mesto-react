@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import ButtonLike from "./ButtonLike/ButtonLike";
 
-export default function Card({ card, onCardClick, currentUser }) {
 
-    const isOwner = card.owner._id === currentUser._id;
-    const isLiked = !!(card.likes.find(like => like._id === currentUser._id))
+export default function Card({ card, onCardClick, currentUser, handleDeleteClick}) {
+
+    const isOwner = !!(card.owner._id === currentUser._id)
 
     return (
         <div className="element">
@@ -13,12 +14,15 @@ export default function Card({ card, onCardClick, currentUser }) {
                 alt={card.name}
                 className="element__image"
             />
-            {isOwner && <button type="button" className="element__button-trash" />}
+            {isOwner && <button
+                onClick={() => handleDeleteClick(card)}
+                type="button"
+                className="element__button-trash"
+            />}
             <div className="element__about">
                 <h2 className="element__title">{card.name}</h2>
                 <div className="element__container">
-                    <button type="button" className={`element__button ${isLiked ? 'element_button-active' : ''}`}/>
-                    <span className="element__button_like-counter">{card.likes.length}</span>
+                    <ButtonLike currentUserId={currentUser._id} card={card} />
                 </div>
             </div>
         </div>

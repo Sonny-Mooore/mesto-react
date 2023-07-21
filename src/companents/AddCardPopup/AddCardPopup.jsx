@@ -1,16 +1,38 @@
 import React from "react";
-
+import PopupWithForm from "../PopupWithForm/PopupWithForm";
 //попап с формой 
-export default function AddCardPopup() {
+export default function AddCardPopup({ closeAllPopups, isAddPlacePopupOpen}) {
     return( 
-        <div className={`popup popup_type_${name}`}>
-        <div className="popup__container">
-          <button type="button" className="popup__closed" />
-          <h3 className="popup__text">Новое место</h3>
-          <form method="post" name="popupAddCardForm" className="popup__form">
-            <button type="submit" className="popup__submit popup__submit_card_submit">Создать</button>
-          </form>
-        </div>
-      </div>
+      <PopupWithForm
+      onClose={closeAllPopups}
+      popupIsOpen={isAddPlacePopupOpen}
+      name="add-Card"
+      nameButton={"Создать"}
+      title={"Новое место"}
+      children={
+          <>
+              <input
+                  name="name"
+                  id="card-name"
+                  minLength={2}
+                  maxLength={30}
+                  required=""
+                  placeholder="Название"
+                  className="popup__input popup__input_card_name "
+                  type="text"
+              />
+              <span id="card-name-error" className="popup__form-error" />
+              <input
+                  name="link"
+                  id="card-link"
+                  required=""
+                  placeholder="Ссылка на картинку"
+                  className="popup__input popup__input_card_link"
+                  type="url"
+              />
+              <span id="card-link-error" className="popup__form-error" />
+          </>
+      }
+  />
     )
 }
