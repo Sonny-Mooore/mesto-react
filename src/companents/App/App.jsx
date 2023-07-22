@@ -5,7 +5,7 @@ import Footer from "../Footer/Footer";
 import AddCardPopup from "../AddCardPopup/AddCardPopup";
 import ImagePopup from "../ImagePopup/ImagePopup.jsx";
 import api from "../../utils/Api";
-import CurrentUserContext from "../../utils/Contexts/CurrentUserContext.js";
+import CurrentUserContext from "../../utils/Contexts/CurrentUserContext";
 import CardContext from "../../utils/Contexts/CardContext.js";
 import EditProfilePopup from "../EditProfilePopup/EditProfilePopup";
 import EditAvatarPopup from "../EditAvatarPopup/EditAvatarPopup";
@@ -15,11 +15,12 @@ function App() {
     const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
     const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
     const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
-    const [selectedCard, setSelectedCard] = useState(Boolean(null));
+    const [selectedCard, setSelectedCard] = useState({name: '', link: ''});
     //
     const [currentUser, setCurrentUser] = useState({});
-    const [cards, setCards] = useState([]);
+    const [cards, setCards] = useState([])
 
+// console.log(currentUser);
 
 
     function handleCardDelete(myCardId) {
@@ -36,14 +37,16 @@ function App() {
     }
 
 
+
     function handleUpdateAvatar(avatarData) {
         api
             .setAvatar(avatarData)
-            .then((data) => { })
-            .catch((error) =>
-                console.error(`Ошибка при обновлении данных Пользователя ${error}`)
-            );
+            .then((data) => {
+                setCurrentUser(data)
+                closeAllPopups();
+            }).catch((error) =>console.error(`Ошибка при обновлении аватара Пользователя ${error}`))
     }
+
 
     function handleUpdateUser(userData) {
         api
@@ -60,7 +63,8 @@ function App() {
     function handleAddPlaceSubmit(cardData) {
 
         api.addCard(cardData).then((newCard) => {
-            setCards([newCard, ...cards]);
+            setCards([newCard, ...cards])
+            closeAllPopups();
         })
     }
 
@@ -97,7 +101,7 @@ function App() {
         setEditProfilePopupOpen(false);
         setAddPlacePopupOpen(false);
         setEditAvatarPopupOpen(false);
-        setSelectedCard(false);
+        setSelectedCard({name: '', link: ''});
     }
 
     return (

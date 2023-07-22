@@ -13,7 +13,7 @@ export default function AddCardPopup({ onClose, isOpen, onAddPlace}) {
       name:name,
       link:link
     })
-    onClose()
+
   }
 
     return( 
@@ -29,7 +29,7 @@ export default function AddCardPopup({ onClose, isOpen, onAddPlace}) {
               <input
                   name="name"
                   onChange={(event) => setName(event.target.value)}
-                  value={name}
+                  value={name ||''}
                   id="card-name"
                   minLength={2}
                   maxLength={30}
@@ -42,7 +42,7 @@ export default function AddCardPopup({ onClose, isOpen, onAddPlace}) {
               <input
                   name="link"
                   onChange={(event) => setLink(event.target.value)}
-                  value={link}
+                  value={link ||''}
                   id="card-link"
                   required=""
                   placeholder="Ссылка на картинку"
