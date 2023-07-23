@@ -25,7 +25,7 @@ function Main({
           type="button"
           className="profile__avatar-overlay"
         >
-          <img className="profile__avatar" src={currentUser.avatar} alt="" />
+          <img className="profile__avatar" src={currentUser.avatar} alt={ currentUser.name && 'картинка Пользователя'} />
         </button>
         <div className="profile__info">
           <div className="profile__edit">

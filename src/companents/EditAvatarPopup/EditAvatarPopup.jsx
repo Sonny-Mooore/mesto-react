@@ -14,11 +14,8 @@ export default function EditAvatarPopup({onClose, isOpen, onUpdateAvatar}) {
       
         onUpdateAvatar({
           avatar:avatar
-        })
-
-    
+        })    
       } 
-
     return (
 
         <PopupWithForm
