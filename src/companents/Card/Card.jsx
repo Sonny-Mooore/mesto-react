@@ -1,16 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import ButtonLike from "./ButtonLike/ButtonLike";
+import CurrentUserContext from "../../utils/Contexts/CurrentUserContext";
 
-export default function Card({
-  card,
-  onCardClick,
-  handleCardLike,
-  currentUser,
-  handleDeleteClick,
-}) {
+
+export default function Card({ card, onCardClick, handleCardLike, handleDeleteClick}) {
+  const currentUser = useContext(CurrentUserContext)
   const isOwner = !!(card.owner._id === currentUser._id);
   const isLiked = card?.likes?.some((item) => item._id === currentUser._id);
-
+// console.log(card);
   return (
     <div className="element">
       <img
